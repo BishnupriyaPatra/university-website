@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+</head>
+<body>
+  <section class="contact-us">
+    <div class="row">
+      <div class="contact-col">
+        <form id="contactForm" onsubmit="sendEmail(); return false;">
+          <div class="nem"><h3>Get In Touch</h3></div>
+          <input type="text" id="name" placeholder="Enter your Name" required="">
+          <input type="email" id="email" placeholder="Enter your Email Id" required="">
+          <input type="text" id="phone" placeholder="Enter your Phone no." required="">
+          <textarea id="message" rows="8" placeholder=" How can we help you...?"></textarea>
+          <button type="submit">Send Email</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function sendEmail() {
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var phone = document.getElementById('phone').value;
+      var message = document.getElementById('message').value;
+      var subject = "Contact Form Submission"; // Set your subject here
+
+      // Constructing the email body with HTML tags
+      var body = `<b>Name:</b> ${name}<br><b>Email:</b> ${email}<br><b>Phone:</b> ${phone}<br><b>Message:</b> ${message}`;
+
+      var formData = new FormData();
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('phone', phone);
+      formData.append('message', message);
+      formData.append('subject', subject);
+      formData.append('body', body);
+
+      fetch('http://127.0.0.1/api/send-email/', {
+        method: 'POST',
+        body: formData
+      })
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error('Network response was not ok.');
+        }
+        return response.json();
+      })
+      .then(function (data) {
+        alert('Email sent successfully'); // or handle success as needed
+      })
+      .catch(function (error) {
+        console.error('There was a problem with the fetch operation:', error);
+        alert('Failed to send email'); // or handle error as needed
+      });
+    }
+  </script>
+</body>
+</html>

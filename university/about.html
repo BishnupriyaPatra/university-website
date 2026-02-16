@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My University</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,500;0,700;1,300;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet"   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous">
+    
+    
+  </head>
+  <body>
+   <section class="sub-header">
+     <nav>
+      <a href="index.html"><img src="logo.png" ></a>
+      <div class="nav-links" id="navLinks">
+        <i class="fa fa-times" onclick="hideMenu()"></i>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+          <li><a href="course.html">COURSE</a></li>
+          <li><a href="blog.html">BLOG</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+      </div>  
+      <i class="fa fa-bars" onclick="showMenu()" ></i>   
+    </nav>   
+      <h1>About Us</h1>  
+   </section> 
+    
+
+    <!------ about us content-->
+
+
+    <section class="about-us">
+
+        <div class="row">
+            <div class=" about-col">
+                <h1>We are World's largest University</h1>
+                <p> You can see the best facility best outcome best result over our university it is up to you add 
+                    you children in our school we are not forcing you but in directly we are make you think that this is the oppertunity otherwise your 
+                    childe will be a  fool for the rest pf his or her life. the way i choosed my university far away
+                    from my home and now i always think why did i do that.</p>
+                <a href="" class="hero-btn red-btn">EXPLORE NOW</a>
+            </div>
+            <div class="about-col">
+                <img src="about.jpg">
+            </div>    
+        </div>
+    </section>               
+
+     <!------Footer-->
+
+  <section class="footer">
+    <h4>About Us</h4>
+    <p>dy yudtuwhd guyduqw hgyu2 ydeu32 gu23y ghdui32y yteu3 uy3tru uiy2i3u<br> iuyri jh2o4y iuri1 ku23yro8b gue3y4.</p>
+    <div class="icons">
+      <i class="fab fa-facebook"></i>
+      <i class="fab fa-twitter"></i>
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-linkedin"></i>
+    </div>
+    <p>Made with <i class="far fa-heart"></i>Easy Tutorials</p>
+
+  </section>
+
+ <! ---------->
+  <script>
+     var navLinks = document.getElementById("navLinks");
+     function showMenu(){
+      navLinks.style.right = "0";
+     }
+     function hideMenu(){
+      navLinks.style.right = "-200px";
+     }
+  </script>   
+
+    
+
+  </body>
+</html>

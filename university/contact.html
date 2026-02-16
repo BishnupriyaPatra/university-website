@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My University</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,500;0,700;1,300;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet"   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous">
+    
+    
+  </head>
+  <body>
+   <section class="sub-header">
+     <nav>
+      <a href="index.html"><img src="logo.png" ></a>
+      <div class="nav-links" id="navLinks">
+        <i class="fa fa-times" onclick="hideMenu()"></i>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+          <li><a href="course.html">COURSE</a></li>
+          <li><a href="blog.html">BLOG</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+      </div>  
+      <i class="fa fa-bars" onclick="showMenu()" ></i>   
+    </nav>   
+      <h1>Contact Us</h1>  
+   </section> 
+
+   <!-------contact us-->
+   <section class="location">
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d239486.66727785842!2d85.65563457635413!3d20.301129052916192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1909d2d5170aa5%3A0xfc580e2b68b33fa8!2sBhubaneswar%2C%20Odisha!5e0!3m2!1sen!2sin!4v1689601613734!5m2!1sen!2sin"
+     width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+   </section>
+
+
+   <section class="contact-us">
+
+    <div class="row">
+        <div class="contact-col">
+            <div>
+                <i class=" fas fa-home"></i>
+                <span>
+                    <h5>Gandhi Nagar,16 Sector</h5>
+                    <p>Bhubneswar,Odisha,INDIA</p>
+                </span>    
+            </div>
+            <div>
+                <i class=" fas fa-phone"></i>
+                <span>
+                    <h5>+0 2233445566</h5>
+                    <p>Monady to Saturday,10AM TO 4PM</p>
+                </span>    
+            </div>
+            <div>
+                <i class="fas fa-envelope"></i>
+                <span>
+                    <h5>info@cometolearn.com</h5>
+                    <p>Email us your query</p>
+                </span>    
+            </div>
+          </div> 
+            <div class="contact-col">
+
+
+              <form onsubmit="sendEmail(); reset(); return false;">
+                <div class="nem"><h3>Get In Touch</h3></div>
+                <input type="text" id="name" placeholder="Enter your Name" required="">
+                <input type="email" id="email" placeholder="Enter your Email Id" required="">
+                <input type="text" id="phone" placeholder="Enter your Phone no." required="">
+                <textarea id="message" rows="8" placeholder=" How can we help you...?"></textarea>
+                
+    
+            </form>
+            
+              <form method="post">
+                <input type="button" value="Send Email"
+                  onclick="sendEmail()" />
+              </form> 
+              
+              <script>
+                function sendEmail() {
+                  var name = document.getElementById('name').value;
+                  var email = document.getElementById('email').value;
+                  var phone = document.getElementById('phone').value;
+                  var message = document.getElementById('message').value;
+                  var subject = "Contact Form Submission"; // Set your subject here
+            
+                  // Constructing the email body with HTML tags
+                  var body = `<b>Name:</b> ${name}<br><b>Email:</b> ${email}<br><b>Phone:</b> ${phone}<br><b>Message:</b> ${message}`;
+            
+                  var formData = new FormData();
+                  formData.append('name', name);
+                  formData.append('email', email);
+                  formData.append('phone', phone);
+                  formData.append('message', message);
+                  formData.append('subject', subject);
+                  formData.append('body', body);
+            
+                  fetch('http://127.0.0.1:8000/api/send-email/', {
+                    method: 'POST',
+                    body: formData
+                  })
+                  .then(function (response) {
+                    if (!response.ok) {
+                      throw new Error('Network response was not ok.');
+                    }
+                    return response.json();
+                  })
+                  .then(function (data) {
+                    alert('Email sent successfully'); // or handle success as needed
+                  })
+                  .catch(function (error) {
+                    console.error('There was a problem with the fetch operation:', error);
+                    alert('Failed to send email'); // or handle error as needed
+                  });
+                }
+              </script>
+            </div>
+            
+        
+    </div>
+    
+   </section>
+     <!------Footer-->
+
+  <section class="footer">
+    <h4>About Us</h4>
+    <p>dy yudtuwhd guyduqw hgyu2 ydeu32 gu23y ghdui32y yteu3 uy3tru uiy2i3u<br> iuyri jh2o4y iuri1 ku23yro8b gue3y4.</p>
+    <div class="icons">
+      <i class="fab fa-facebook"></i>
+      <i class="fab fa-twitter"></i>
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-linkedin"></i>
+    </div>
+    <p>Made with <i class="far fa-heart"></i>Easy Tutorials</p>
+
+  </section>
+
+ <! ---------->
+  <script>
+     var navLinks = document.getElementById("navLinks");
+     function showMenu(){
+      navLinks.style.right = "0";
+     }
+     function hideMenu(){
+      navLinks.style.right = "-200px";
+     }
+  </script>   
+
+    
+
+  </body>
+</html>
